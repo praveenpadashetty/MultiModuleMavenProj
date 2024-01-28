@@ -108,6 +108,20 @@ public class Product {
 		System.out.println(list);
 	}
 	
+	//Task for Streams
+		public void nameInCapsBasedOnPrice(List<Product> products) {
+				for (int i = 0; i < products.size(); i++) {
+					if (products.get(i).getPrice() > 1000.00) {
+						Product p = new Product().setName(products.get(i).getName().toUpperCase());
+						p.setGrade(products.get(i).getGrade());
+						p.setPrice(products.get(i).getPrice());
+						p.setCategory(products.get(i).getCategory());
+						products.set(i, p);
+					}
+				}
+			System.out.println("Updated product name " + products);
+		}
+	
 
 	@Override
 	public String toString() {
