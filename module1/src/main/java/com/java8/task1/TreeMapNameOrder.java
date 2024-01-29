@@ -1,5 +1,6 @@
 package com.java8.task1;
 
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,11 +19,18 @@ public class TreeMapNameOrder {
 		for (Map.Entry<Student,Integer > emap : map.entrySet()) {
 			System.out.println(emap.getKey() + " " + emap.getKey().getName());
 		}
+		
+		//With Lambda
+		Map<Student, Integer> myMap = new TreeMap<>(Comparator.comparing(Student::getName).reversed());
+		myMap.putAll(map);
+		 myMap.forEach((key, value) -> System.out.println(key + " : " + value));
+		
 	}
+	
 }
 
 class Student implements Comparable<Student> {
-	String name;
+	static  String name;
 
 	public String getName() {
 		return name;

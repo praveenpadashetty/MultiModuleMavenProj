@@ -7,8 +7,19 @@ import java.util.List;
 public class ComperatorNumDemo {
 
 	public static void main(String[] args) {
+		
+		// Use Comparator inerface to sort given list of numbers in reverse order
 		List<Integer> list = Arrays.asList(4, 2, 5, 1, 3);
 		list.sort(new ComperatorNumDemo().new ComperatorImpl());
+		 System.out.println(list);
+		 
+		 //with lamda
+		 Comparator<Integer> comperator = (o1,o2)->{
+			 return o2 - o1;
+		 };
+		 list = Arrays.asList(4, 2, 5, 1, 3);
+		 System.out.println("Before "+list);
+		 list.sort(comperator);
 		 System.out.println(list);
 	}
 	
